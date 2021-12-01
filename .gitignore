@@ -1,0 +1,7 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+# My solutions are named "solve.nim", so solve is the binary
+solve
