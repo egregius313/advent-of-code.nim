@@ -26,15 +26,15 @@ proc find_paths_impl(g: var Graph; src, dst: Vertex; seen: var HashSet[Vertex]; 
     return 1
 
   var sum = 0
+  path.add src
   for next in g.edges[src]:
     if next.isSmall and next in seen:
       continue
 
     seen.incl src
-    path.add src
     sum += g.find_paths_impl(next, dst, seen, path)
-    discard path.pop
     seen.excl src
+  discard path.pop
 
   return sum
 
